@@ -308,7 +308,7 @@ const Landing1 = () => {
             transition: { duration: 0.3 }
           }}
         >
-          PepperAds revolutionizes how you create forms, analyze responses, and manage documents.
+          Pepperwahl revolutionizes how you create forms, analyze responses, and manage documents.
           Our no-code platform empowers businesses, researchers, and educators to focus on insights,
           not implementation.
         </motion.p>
@@ -358,7 +358,7 @@ const Landing1 = () => {
               transition: { duration: 0.3 }
             }}
           >
-            Why Choose PepperAds?
+            Why Choose Pepperwahl?
           </motion.h3>
 
           <motion.ul 
@@ -447,7 +447,7 @@ const Landing1 = () => {
             {/* Layered image effects */}
             <motion.img
               src="https://i.postimg.cc/XqFtYfwh/Chat-GPT-Image-Apr-11-2025-12-13-40-PM.png"
-              alt="PepperAds platform dashboard"
+              alt="Pepperwahl platform dashboard"
               className="w-full h-auto object-cover transition-all duration-700"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ 

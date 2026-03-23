@@ -913,7 +913,7 @@ const Landing2 = () => {
 
       {/* Contact Us Floating Button - Mobile Optimized */}
       <motion.a
-        href="https://pepperadsresponses.web.app/survey/da59928f-d959-44d5-8361-7c70fd06af8d"
+        href="https://i.postimg.cc/HnR01ngR/Copilot-20260323-142505.png"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 bg-black/70 backdrop-blur-md text-center px-2 sm:px-3 py-2 rounded-lg shadow-lg flex flex-col items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 hover:scale-105 hover:shadow-2xl transition duration-300"

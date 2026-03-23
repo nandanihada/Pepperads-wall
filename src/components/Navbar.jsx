@@ -30,8 +30,8 @@ const handleLogout = async () => {
         <div className="flex items-center">
           <a href="/">
             <img 
-              src="https://i.postimg.cc/K8kSNbWJ/pepperads-logo-removebg-preview.png" 
-              alt="PepperAds" 
+              src="https://i.postimg.cc/HnR01ngR/Copilot-20260323-142505.png" 
+              alt="Pepperwahl" 
               className="h-20 w-auto object-contain -ml-4"
             />
           </a>

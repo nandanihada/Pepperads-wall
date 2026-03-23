@@ -126,8 +126,8 @@ const Login = () => {
     <div className="min-h-screen bg-black flex flex-col items-center justify-center px-4 relative">
       <div className="mb-6">
         <img
-          src="https://i.postimg.cc/qMm2RWb3/pepperads-logo-removebg-preview.png"
-          alt="PepperAds"
+          src="https://i.postimg.cc/HnR01ngR/Copilot-20260323-142505.png"
+          alt="Pepperwahl"
           className="h-20"
         />
       </div>

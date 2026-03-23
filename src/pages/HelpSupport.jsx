@@ -5,24 +5,24 @@ const HelpSupport = () => {
 
   const faqs = [
     {
-      question: 'How do I create a PepperAds account?',
+      question: 'How do I create a Pepperwahl account?',
       answer:
-        'Visit pepperads-bb785.web.app and click “Start for Free.” Enter your email and follow the quick onboarding process — no credit card required.',
+        'Visit pepperwahl-bb785.web.app and click “Start for Free.” Enter your email and follow the quick onboarding process — no credit card required.',
     },
     {
       question: 'How do I install the survey widget on my site?',
       answer:
-        'After creating your survey, PepperAds gives you a code snippet. Copy and paste it into your website’s <head> or use integrations like Google Tag Manager, Webflow, or WordPress.',
+        'After creating your survey, Pepperwahl gives you a code snippet. Copy and paste it into your website’s <head> or use integrations like Google Tag Manager, Webflow, or WordPress.',
     },
     {
-      question: 'Do I need technical skills to use PepperAds?',
+      question: 'Do I need technical skills to use Pepperwahl?',
       answer:
         'No. The platform is designed to be user-friendly and code-free. But for advanced tracking or integrations, you can use tools like Make, Zapier, or connect with your developer.',
     },
     {
       question: 'Where can I contact support?',
       answer:
-        'You can email us at support@pepperads.com or use the chat widget in your dashboard for live help.',
+        'You can email us at support@pepperwahl.com or use the chat widget in your dashboard for live help.',
     },
     {
       question: 'My survey isn’t showing on my site. What should I do?',

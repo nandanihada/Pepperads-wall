@@ -279,7 +279,7 @@ const CommunityShowcases = () => {
       title: "TechBurst's Scalable ROI",
       category: "Agency",
       image: "https://i.pinimg.com/1200x/a3/6e/6c/a36e6cd7366c25bba9ec3fa02ca2010f.jpg",
-      description: "Agency | Drove higher client ROI with integrated PepperAds for SaaS campaigns.",
+      description: "Agency | Drove higher client ROI with integrated Pepperwahl for SaaS campaigns.",
       stats: { views: "6.7K", likes: "493", comments: "61" }
     },
     {
@@ -303,7 +303,7 @@ const CommunityShowcases = () => {
       title: "EcoTrek's Community Building",
       category: "Brand",
       image: "https://i.pinimg.com/736x/01/8a/b1/018ab19a8241f340992470f7f20a3e05.jpg",
-      description: "Brand | Built an engaged brand community and loyalty flow with PepperAds.",
+      description: "Brand | Built an engaged brand community and loyalty flow with Pepperwahl.",
       stats: { views: "5.6K", likes: "381", comments: "32" }
     },
     {
@@ -330,7 +330,7 @@ const CommunityShowcases = () => {
             Community <span style={styles.accent}>Showcases</span>
           </h1>
           <p style={styles.heroSubtitle}>
-            Real-world examples of how <span style={styles.accent}>creators, agencies, and marketers</span> are using PepperAds to grow their audience and revenue
+            Real-world examples of how <span style={styles.accent}>creators, agencies, and marketers</span> are using Pepperwahl to grow their audience and revenue
           </p>
         </div>
       </div>
@@ -348,7 +348,7 @@ const CommunityShowcases = () => {
             <div style={styles.featuredContent}>
               <h2 style={styles.featuredTitle}>How StyleCode Scaled to 500K Subscribers</h2>
               <p style={styles.featuredText}>
-                Fashion-tech creator Mia Chen scaled from 50K to 500K subscribers and 4x'd her monthly income—powered by smart PepperAds integration and a laser-focused strategy.
+                Fashion-tech creator Mia Chen scaled from 50K to 500K subscribers and 4x'd her monthly income—powered by smart Pepperwahl integration and a laser-focused strategy.
               </p>
               
               <div style={styles.featuredResults}>
@@ -425,7 +425,7 @@ const CommunityShowcases = () => {
         <div style={styles.submitSection}>
           <h2 style={styles.submitTitle}>Share Your <span style={styles.accent}>Success Story</span></h2>
           <p style={styles.submitText}>
-            Using PepperAds and seeing success? We’d love to feature you. Get spotlighted in front of our global creator and brand community.
+            Using Pepperwahl and seeing success? We’d love to feature you. Get spotlighted in front of our global creator and brand community.
           </p>
           <button 
             onClick={() => navigate('/login')}

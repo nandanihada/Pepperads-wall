@@ -154,8 +154,8 @@ const Signup = () => {
     <div className="min-h-screen bg-black flex flex-col items-center justify-center px-4">
       <div className="mb-6">
         <img
-          src="https://i.postimg.cc/qMm2RWb3/pepperads-logo-removebg-preview.png"
-          alt="PepperAds"
+          src="https://i.postimg.cc/vms1n9XM/Copilot-20260323-140813.png"
+          alt="Pepperwahl"
           className="h-20"
         />
       </div>
@@ -175,7 +175,7 @@ const Signup = () => {
 
         <div>
           <h1 className="text-3xl font-bold text-white mb-2">Create an account</h1>
-          <p className="text-gray-300 mb-8">Get started with PepperAds</p>
+          <p className="text-gray-300 mb-8">Get started with Pepperwahl</p>
 
           <form className="space-y-4" onSubmit={handleSignup}>
             <div>

@@ -27,7 +27,7 @@ const TermsOfUse = () => {
           {openSection === 1 && (
             <div className="mt-2 text-gray-300 space-y-2">
               <p>
-                PepperAds offers a powerful digital advertising platform that helps
+                Pepperwahl offers a powerful digital advertising platform that helps
                 businesses promote their products and services through a wide
                 network of publishers.
               </p>
@@ -57,7 +57,7 @@ const TermsOfUse = () => {
             <div className="mt-2 text-gray-300 space-y-2">
               <p>
                 All payments for advertising services must be made through
-                PepperAds’ approved payment methods.
+                Pepperwahl’ approved payment methods.
               </p>
               <p>
                 Charges are calculated based on selected plan type and ad
