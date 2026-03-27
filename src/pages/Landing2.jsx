@@ -913,28 +913,29 @@ const Landing2 = () => {
 
       {/* Contact Us Floating Button - Mobile Optimized */}
       <motion.a
-        href="https://i.postimg.cc/prvQWTcs/Copilot-20260323-145712.png"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 bg-black/70 backdrop-blur-md text-center px-2 sm:px-3 py-2 rounded-lg shadow-lg flex flex-col items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 hover:scale-105 hover:shadow-2xl transition duration-300"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        whileHover={{
-          scale: 1.1,
-          boxShadow: '0 0 8px rgba(255, 0, 100, 0.5)',
-        }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <img
-          src="/favicon.png"
-          alt="Pepper Logo"
-          className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mb-0.5 sm:mb-1"
-        />
-        <span className="text-red-500 font-semibold text-[8px] sm:text-[9px] md:text-[10px] leading-tight">
-          Contact Us
-        </span>
-      </motion.a>
+  href="https://i.postimg.cc/prvQWTcs/Copilot-20260323-145712.png"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 bg-black/70 backdrop-blur-md text-center px-3 py-3 rounded-lg shadow-lg flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 hover:scale-105 hover:shadow-2xl transition duration-300"
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, ease: 'easeOut' }}
+  whileHover={{
+    scale: 1.1,
+    boxShadow: '0 0 8px rgba(255, 0, 100, 0.5)',
+  }}
+  whileTap={{ scale: 0.95 }}
+>
+  <img
+    src="/favicon.png"
+    alt="Pepper Logo"
+    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mb-1"
+  />
+
+  <span className="text-red-500 font-semibold text-xs sm:text-sm leading-tight">
+    Contact Us
+  </span>
+</motion.a>
 
       {/* Social Links Section - Mobile Optimized */}
       <section className="py-8 sm:py-10 bg-black text-gray-300 text-center relative z-10 px-4">

@@ -41,8 +41,8 @@ const Hero = () => {
       return;
     }
 
-    // Redirect to dashboard.pepperwahl.com
-    const targetUrl = 'https://dashboard.pepperwahl.com/';
+    // Redirect to https://pepperwahl.com/
+    const targetUrl = 'https://pepperwahl.com/';
     console.log("Opening URL:", targetUrl);
 
     const newWindow = window.open(targetUrl, '_blank', 'noopener,noreferrer');

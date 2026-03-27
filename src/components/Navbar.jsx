@@ -27,15 +27,25 @@ const handleLogout = async () => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         
         {/* Logo Section - Reduced height */}
-        <div className="flex items-center">
-          <a href="/">
-            <img 
-              src="https://i.postimg.cc/prvQWTcs/Copilot-20260323-145712.png" 
-              alt="Pepperwahl" 
-              className="h-20 w-auto object-contain -ml-4"
-            />
-          </a>
-        </div>
+        {/* Logo Section */}
+<div className="flex items-center gap-2">
+  <a href="/" className="flex items-center">
+    
+    {/* Logo Image */}
+    <img 
+      src="https://i.postimg.cc/prvQWTcs/Copilot-20260323-145712.png" 
+      alt="Pepperwahl" 
+      className="h-36 md:h-22 w-auto object-contain"
+    />
+
+    {/* Logo Text */}
+    <span className="text-white text-[24px] font-semibold ml-2">
+      <span className="font-bold text-red-500"></span>
+      <span className="font-medium"></span>
+    </span>
+
+  </a>
+</div>
         
         {/* Navigation Links - With dropdowns */}
         <div className="hidden md:flex items-center space-x-8">
