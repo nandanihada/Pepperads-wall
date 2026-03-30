@@ -138,7 +138,7 @@ const Partnerships = () => {
           <p className="text-xl italic text-gray-300 mb-6">
             "Integrating their survey tools was a game-changer. Engagement improved, and our revenue jumped 43% in just three months."
           </p>
-          <div className="font-semibold text-red-400">Pepperwahl</div>
+          <div className="font-semibold text-red-400">PepperAds</div>
           <div className="text-sm text-gray-400">CEO, Digital Affiliates Network</div>
         </div>
 

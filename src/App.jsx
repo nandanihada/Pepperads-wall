@@ -14,19 +14,11 @@ import FormBuilder from './pages/FormBuilder';
 import Overview from './pages/Overview';
 import OurVision from './pages/OurVision';
 import Careers from './pages/Careers';
-import Login from './components/Login';
-import Signup from './components/Signup';
-
 import Blog from './pages/Blog';
 import HelpSupport from './pages/HelpSupport';
 import ContactUs from './pages/ContactUs';
 import SurveyMonetization from './pages/SurveyMonetization';
-import { AuthProvider } from './contexts/AuthContext';  // Import AuthProvider
-import { useAuth } from './contexts/AuthContext';  // Import useAuth to access user data
-import ProtectedRoute from './components/ProtectedRoute';  // Import ProtectedRoute
 import Dashboard from './pages/Dashboard'; // Adjust the path based on where the component is located
-import LoginAdmin from './components/LoginAdmin';
-import Register from './components/RegisterAdmin';
 import Customerfeedback from './pages/Customerfeedback';
 import EmployeeReview from './pages/EmployeeReview';  
 import Resourcecenter from './pages/Resourcecenter';
@@ -80,7 +72,6 @@ const HelpCentrePage = () => <HelpCentre />;
 
 const App = () => {
   return (
-    <AuthProvider> {/* Wrap everything in AuthProvider */}
       <BrowserRouter>
         <Layout>
           <Routes>
@@ -98,15 +89,12 @@ const App = () => {
             <Route path="/formbuilder" element={<FormBuilder />} />
             <Route path="/ourvision" element={<OurVision />} />
             <Route path="/careers" element={<Careers />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
             <Route path="/resourcecenter" element={<ResourceCenter />} />
             <Route path="/resource-center" element={<Resourcecenter />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/helpsupport" element={<HelpSupport />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/monetization" element={<SurveyMonetization />} />
-            <Route path="/registeradmin" element={<Register />} />
             <Route path="/customer-feedback" element={<Customerfeedback />} />
             <Route path="/employee-review" element={<EmployeeReview />} />
             <Route path="/resourceshub" element={<ResourcesHub />} />
@@ -149,19 +137,10 @@ const App = () => {
             {/* <Route path="/termandcon" element={<Termandcon/>} /> */}
            
        
-           {/* Public Routes */}
-           <Route path="/admin-login" element={<LoginAdmin />} />
-
-{/* Protected Route for Dashboard */}
-<Route element={<ProtectedRoute />}> {/* Wrap routes that require authentication */}
-  <Route path="/dashboard" element={<Dashboard />} />
-</Route>
-
-           
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </Layout>
       </BrowserRouter>
-    </AuthProvider>
   );
 };
 

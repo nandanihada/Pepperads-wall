@@ -93,7 +93,7 @@ const Footer = () => {
           
           <li><a href="/grow-revenue" className="hover:text-red-500">Grow with Survey Revenue</a></li>
         </div>
-        <p className="text-gray-500 text-sm">© 2025 Pepperwahl. All rights reserved.</p>
+        <p className="text-gray-500 text-sm">© 2025 PepperAds. All rights reserved.</p>
         <a href="/termandcon.html">Terms of Use</a>
 
       </div>

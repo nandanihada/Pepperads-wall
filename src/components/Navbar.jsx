@@ -1,25 +1,12 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
-import { auth } from '../firebase';
-import { useAuth } from '../contexts/AuthContext'; 
+ 
 const Navbar = () => {
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [howItWorksOpen, setHowItWorksOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
-  const { user } = useAuth();
 
-const handleLogout = async () => {
-  try {
-    await signOut(auth);
-    localStorage.removeItem('userEmail');
-    alert('Logged out successfully!');
-  } catch (error) {
-    console.error('Logout error:', error);
-    alert('Failed to logout. Try again.');
-  }
-};
 
   
   return (
@@ -33,15 +20,14 @@ const handleLogout = async () => {
     
     {/* Logo Image */}
     <img 
-      src="https://i.postimg.cc/prvQWTcs/Copilot-20260323-145712.png" 
-      alt="Pepperwahl" 
-      className="h-36 md:h-22 w-auto object-contain"
+      src="/favicon.png" 
+      alt="PepperAds Logo" 
+      className="h-10 md:h-12 w-auto object-contain"
     />
 
     {/* Logo Text */}
-    <span className="text-white text-[24px] font-semibold ml-2">
-      <span className="font-bold text-red-500"></span>
-      <span className="font-medium"></span>
+    <span className="text-[28px] font-bold ml-2 tracking-tight">
+      <span className="text-[#E31B23]">Pepper</span><span className="text-white">Ads</span>
     </span>
 
   </a>
@@ -135,19 +121,11 @@ const handleLogout = async () => {
              Pricing
           </Link>
           
-          <Link to="/login">
-  <button className="bg-[#E31B23] hover:bg-red-700 text-white px-5 py-2 rounded-md text-lg transition">
-    Get Started
-  </button>
-</Link>
-{user && (
-  <button
-    onClick={handleLogout}
-    className="bg-gray-800 hover:bg-gray-700 text-white px-5 py-2 rounded-md text-lg transition"
-  >
-    Logout
-  </button>
-)}
+          <a href="https://pepperwahl.com/" target="_blank" rel="noopener noreferrer">
+            <button className="bg-[#E31B23] hover:bg-red-700 text-white px-5 py-2 rounded-md text-lg transition">
+              Get Started
+            </button>
+          </a>
 
         </div>
 

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import useQueryParamsContent from '../hooks/useQueryParamsContent';
-import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import StepsComponent from '../Animationcards/stepcards';
 
@@ -9,37 +8,9 @@ import StepsComponent from '../Animationcards/stepcards';
 const Hero = () => {
   const navigate = useNavigate();
   const { title, image, paragraph } = useQueryParamsContent();
-  const { user, loading } = useAuth();
-
-  const [email, setEmail] = useState(null);
-
-  // Ensure email is loaded from user or localStorage
-  useEffect(() => {
-    const storedEmail = localStorage.getItem('userEmail');
-    if (user?.email) {
-      setEmail(user.email);
-      localStorage.setItem('userEmail', user.email); // sync back to localStorage
-    } else if (storedEmail) {
-      setEmail(storedEmail);
-    }
-  }, [user]);
 
   const handleStartSurvey = async () => {
     console.log("Start Creating button clicked!");
-    console.log("Loading state:", loading);
-    console.log("User state:", user);
-    
-    if (loading) {
-      console.log("Still loading, returning...");
-      return;
-    }
-
-    if (!user) {
-      console.log("No user found, redirecting to login");
-      alert("Please log in first to start creating.");
-      navigate('/login');
-      return;
-    }
 
     // Redirect to https://pepperwahl.com/
     const targetUrl = 'https://pepperwahl.com/';

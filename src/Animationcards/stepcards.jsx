@@ -22,7 +22,7 @@ const StepsComponent = () => {
     },
     {
       title: "Monetize with Smart Offers",
-      description: "Plug in affiliate or custom offers. Pepperwahl automatically matches the best-performing offer to each segment using real-time data.",
+      description: "Plug in affiliate or custom offers. PepperAds automatically matches the best-performing offer to each segment using real-time data.",
       ctaText: "Explore Options",
       ctaPath: "/ContactUs"
     },

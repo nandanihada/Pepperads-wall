@@ -26,7 +26,7 @@ const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
           messages: [
-            { role: "system", content: "You are Pepperwahl Assistant. Be friendly and helpful." },
+            { role: "system", content: "You are PepperAds Assistant. Be friendly and helpful." },
             ...newMessages.map((msg) => ({
               role: msg.sender === "user" ? "user" : "assistant",
               content: msg.text
@@ -56,7 +56,7 @@ const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
         <div className="w-80 bg-[#111] text-white border border-red-500 rounded-lg shadow-xl flex flex-col overflow-hidden">
           {/* Header */}
           <div className="flex justify-between items-center px-4 py-3 bg-[#1a1a1a] border-b border-[#222] font-semibold text-sm">
-            <span>Pepperwahl Assistant</span>
+            <span>PepperAds Assistant</span>
             <button onClick={() => setIsOpen(false)} className="text-white hover:text-red-400">
               <X size={18} />
             </button>

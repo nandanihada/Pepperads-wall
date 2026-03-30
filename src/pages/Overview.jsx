@@ -29,7 +29,7 @@ const Overview = () => {
           <div className="relative rounded-lg overflow-hidden mb-12 transition-all duration-500 group hover:shadow-xl hover:shadow-red-900/30">
             <img
               src="https://i.postimg.cc/XqFtYfwh/Chat-GPT-Image-Apr-11-2025-12-13-40-PM.png"
-              alt="Pepperwahl platform dashboard"
+              alt="PepperAds platform dashboard"
               className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -44,13 +44,13 @@ const Overview = () => {
               Transform Your <span className="text-red-600">Data Workflow</span>
             </h2>
             <p className="text-xl text-gray-300 mb-12 leading-relaxed">
-              Pepperwahl revolutionizes how you create forms, analyze responses, and manage documents. 
+              PepperAds revolutionizes how you create forms, analyze responses, and manage documents. 
               Our no-code platform empowers businesses, researchers, and educators to focus on insights, 
               not implementation.
             </p>
             
             <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
-              <h3 className="text-2xl font-bold mb-6 text-red-600">Why Choose Pepperwahl?</h3>
+              <h3 className="text-2xl font-bold mb-6 text-red-600">Why Choose PepperAds?</h3>
               <ul className="space-y-4 text-lg text-gray-300 text-left max-w-2xl mx-auto">
                 <li className="flex items-start">
                   <span className="text-red-500 mr-3">✓</span>

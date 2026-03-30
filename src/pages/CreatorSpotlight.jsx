@@ -9,7 +9,7 @@ const CreatorSpotlight = () => {
       name: "Content Manager",
       brand: "Personalized | Community-Driven",
       image: "https://i.pinimg.com/736x/bd/aa/0d/bdaa0dc95d69c7df5760a6f617028108.jpg",
-      description: "Increased newsletter subscriptions by 127% using Pepperwahl' gamified surveys.",
+      description: "Increased newsletter subscriptions by 127% using PepperAds' gamified surveys.",
       tip: "Use conditional logic to personalize the user journey based on their interests."
     },
     {
@@ -63,7 +63,7 @@ const navigate = useNavigate();
           </div>
           <h2 className="text-5xl font-bold mb-4">Meet This Month's Featured Creator</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Discover how they've leveraged Pepperwahl to boost engagement and drive results
+            Discover how they've leveraged PepperAds to boost engagement and drive results
           </p>
         </div>
         
@@ -98,7 +98,7 @@ const navigate = useNavigate();
                     <h5 className="text-xl font-semibold">Success Strategy</h5>
                   </div>
                   <p className="text-gray-300">
-                    “We utilized Pepperwahl’ gamified surveys alongside performance-based incentives to engage users at scale. This approach not only delivered high-quality insights but also improved user retention across key audience segments.”
+                    “We utilized PepperAds’ gamified surveys alongside performance-based incentives to engage users at scale. This approach not only delivered high-quality insights but also improved user retention across key audience segments.”
                   </p>
                 </div>
                 
@@ -181,7 +181,7 @@ const navigate = useNavigate();
         <div className="backdrop-blur-xl bg-gradient-to-r from-red-900/30 to-red-600/30 border border-red-500/20 rounded-3xl p-12 text-center">
           <h2 className="text-4xl font-bold mb-6">Nominate a Featured Contributor</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Know a professional or organization leveraging Pepperwahl drive impactful results? Help us recognize industry leaders by nominating them for our next Spotlight feature!
+            Know a professional or organization leveraging PepperAds drive impactful results? Help us recognize industry leaders by nominating them for our next Spotlight feature!
           </p>
           <button
             onClick={() => navigate('/contactUs')}

@@ -913,9 +913,7 @@ const Landing2 = () => {
 
       {/* Contact Us Floating Button - Mobile Optimized */}
       <motion.a
-  href="https://i.postimg.cc/prvQWTcs/Copilot-20260323-145712.png"
-  target="_blank"
-  rel="noopener noreferrer"
+  href="/contactus"
   className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 bg-black/70 backdrop-blur-md text-center px-3 py-3 rounded-lg shadow-lg flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 hover:scale-105 hover:shadow-2xl transition duration-300"
   initial={{ opacity: 0, y: 50 }}
   animate={{ opacity: 1, y: 0 }}

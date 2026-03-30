@@ -86,7 +86,7 @@ const ResourceCenter = () => {
         <div className="mt-20">
           <h2 className="text-2xl font-semibold mb-4 text-[#E31B23]">Community Showcases</h2>
           <p className="text-gray-400 mb-6">
-            Real-world examples of how creators, agencies, and marketers are using Pepperwahl to grow their audience and revenue.
+            Real-world examples of how creators, agencies, and marketers are using PepperAds to grow their audience and revenue.
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
