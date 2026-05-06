@@ -12,8 +12,8 @@ const Hero = () => {
   const handleStartSurvey = async () => {
     console.log("Start Creating button clicked!");
 
-    // Redirect to https://pepperwahl.com/
-    const targetUrl = 'https://pepperwahl.com/';
+    // Redirect to https://survey.pepperwahl.com/create-survey
+    const targetUrl = 'https://survey.pepperwahl.com/create-survey';
     console.log("Opening URL:", targetUrl);
 
     const newWindow = window.open(targetUrl, '_blank', 'noopener,noreferrer');
@@ -34,7 +34,7 @@ const Hero = () => {
   );
 
   const defaultImage = "https://i.postimg.cc/mkTZMTHD/GW-Generated-Image-4-9-2025-3-10-32-PM.png";
-  
+
   return (
     <>
       <section className="pt-10 pb-20 px-4">
@@ -57,7 +57,7 @@ const Hero = () => {
                 <button onClick={handleStartSurvey} className="btn-primary flex items-center">
                   Start Creating <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
-                <button 
+                <button
                   onClick={() => navigate('/contactUs')}
                   className="btn-secondary flex items-center">
                   Try AI Form Builder <ArrowRight className="ml-2 h-5 w-5" />
@@ -65,9 +65,9 @@ const Hero = () => {
               </div>
             </div>
             <div className="relative">
-              <img 
+              <img
                 src={image || defaultImage}
-                alt="Survey Dashboard" 
+                alt="Survey Dashboard"
                 className="rounded-lg shadow-2xl pb-10"
               />
               <div className="absolute -bottom-4 -right-4 bg-[#E31B23] text-white p-4 rounded-lg">
