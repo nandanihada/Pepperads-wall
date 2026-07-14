@@ -19,14 +19,14 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
 
         {/* Logo Section */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 mr-8 lg:mr-12">
           <a href="/" className="flex items-center">
             <img
               src="/favicon.png"
               alt="Pepperwahl Logo"
               className="h-8 sm:h-10 md:h-12 w-auto object-contain"
             />
-            <span className="text-xl sm:text-2xl md:text-[28px] font-bold ml-2 tracking-tight">
+            <span className="text-xl sm:text-2xl md:text-[28px] font-bold ml-2 tracking-tight whitespace-nowrap">
               <span className="text-[#E31B23]">Pepper</span><span className="text-white">wahl</span>
             </span>
           </a>

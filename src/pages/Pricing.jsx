@@ -1,308 +1,246 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { X, Sparkles, Mail, User, Building, MessageSquare, CheckCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Check } from 'lucide-react';
 
 const Pricing = () => {
-  const modalRef = useRef(null);
-  const [showPopup, setShowPopup] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    companyUrl: '',
-    message: ''
-  });
-  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const [billing, setBilling] = useState('monthly');
 
-  useEffect(() => {
-    if (modalRef.current) {
-      modalRef.current.showModal();
-      setTimeout(() => setIsVisible(true), 100);
-    }
-  }, []);
+  const isLight = searchParams.get('theme') === 'light';
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const validateUrl = (url) => {
-    const urlRegex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-])\/?$/;
-    return urlRegex.test(url);
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-
-    if (!formData.companyUrl.trim()) {
-      newErrors.companyUrl = 'Company URL is required';
-    } else if (!validateUrl(formData.companyUrl)) {
-      newErrors.companyUrl = 'Please enter a valid URL (e.g., company.com)';
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Please tell us about your needs';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const isFormValid = () => {
-    return (
-      formData.name.trim() &&
-      formData.email.trim() &&
-      validateEmail(formData.email) &&
-      formData.companyUrl.trim() &&
-      validateUrl(formData.companyUrl) &&
-      formData.message.trim()
-    );
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-
-    // Clear error for this field when user starts typing
-    if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: ''
-      });
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    console.log('Form submitted with data:', formData);
-    console.log('Form validation result:', validateForm());
-    
-    if (!validateForm()) {
-      console.log('Form validation failed, errors:', errors);
-      return;
-    }
-
-    console.log('Form is valid, proceeding with submission');
-    setIsVisible(false);
-    setTimeout(() => {
-      if (modalRef.current) {
-        modalRef.current.close();
-      }
-      setShowPopup(true);
-    }, 300);
-  };
-
-  const handleClose = () => {
-    setIsVisible(false);
-    setTimeout(() => {
-      if (modalRef.current) {
-        modalRef.current.close();
-      }
-    }, 300);
-  };
+  const plans = [
+    {
+      name: 'Free',
+      pepper: '/red_chilli.png',
+      description: 'Get started with surveys — no credit card needed.',
+      price: billing === 'monthly' ? '₹0' : '₹0',
+      priceSuffix: '/ forever',
+      priceNote: 'Free to start',
+      cta: 'Start Free',
+      ctaStyle: 'border-2 border-red-500 text-red-500 hover:bg-red-500/10',
+      popular: false,
+      features: [
+        '2,000 responses / month',
+        '70 AI-generated surveys / month',
+        'AI editing assistance',
+        'Survey widget embed',
+        'Pepperwahl branding',
+      ],
+    },
+    {
+      name: 'Pro',
+      pepper: '/green_chilli.png',
+      description: 'For growing teams that need insights and exports.',
+      price: billing === 'monthly' ? '₹2,000' : '₹1,600',
+      priceSuffix: '/ month',
+      priceNote: billing === 'annual' ? 'billed annually' : 'billed monthly',
+      cta: 'Upgrade to Pro',
+      ctaStyle: 'bg-red-500 text-white hover:bg-red-600',
+      popular: true,
+      prefix: 'EVERYTHING IN FREE, PLUS:',
+      features: [
+        '10,000 responses / month',
+        '200 AI-generated surveys / month',
+        'Download CSV exports',
+        'Advanced analytics & AI summary',
+        'Remove Pepperwahl branding',
+        'Priority support',
+      ],
+    },
+    {
+      name: 'Enterprise',
+      pepper: '/yellow_chilli.png',
+      description: 'Custom scale, full control, dedicated support.',
+      price: 'Custom',
+      priceSuffix: '',
+      priceNote: 'tailored to your team',
+      cta: 'Contact Sales',
+      ctaStyle: 'border-2 border-stone-400 text-stone-300 hover:bg-stone-800/50',
+      popular: false,
+      prefix: 'EVERYTHING IN PRO, PLUS:',
+      features: [
+        'Unlimited responses',
+        'Unlimited AI surveys',
+        'Custom domain',
+        'Webhooks & API access',
+        'Team members & roles',
+        'Dedicated account manager',
+        'SSO & advanced security',
+      ],
+    },
+  ];
 
   return (
-    <div className="w-screen h-screen fixed top-0 left-0 flex items-center justify-center bg-gradient-to-br from-black/40 via-purple-900/20 to-black/40 backdrop-blur-md z-50">
-      {/* Contact Form Modal */}
-      <dialog
-        ref={modalRef}
-        className={`rounded-2xl p-0 w-[95%] max-w-lg bg-gradient-to-br from-white via-gray-50 to-white shadow-2xl border-0 transition-all duration-300 ease-out transform ${
-          isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-        }`}
-        style={{ backdropFilter: 'none', background: 'transparent' }}
-      >
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-gray-50 to-white">
-          {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/10 to-purple-500/10 rounded-full -translate-y-16 translate-x-16"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-500/10 to-red-500/10 rounded-full translate-y-12 -translate-x-12"></div>
-          
-          {/* Close Button */}
-         
+    <div className={`min-h-screen ${isLight ? 'bg-white text-slate-900' : 'bg-slate-950 text-white'}`}>
+      {/* Header */}
+      <div className="text-center pt-10 sm:pt-16 pb-8 sm:pb-12 px-4">
+        <div
+          className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 ${
+            isLight ? 'bg-stone-100 border border-stone-200' : 'bg-slate-800 border border-slate-700'
+          }`}
+        >
+          <img src="/logo.png" alt="" className="w-4 h-4 object-contain" />
+          <span
+            className={`text-[11px] font-bold tracking-widest uppercase ${
+              isLight ? 'text-stone-600' : 'text-slate-300'
+            }`}
+          >
+            Simple, Spicy Pricing
+          </span>
+        </div>
 
-          <div className="relative p-8">
-            {/* Header */}
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-red-600 mb-4 shadow-lg shadow-red-500/25">
-                <Sparkles className="w-8 h-8 text-white" />
-              </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Get Early Access</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Join the waitlist and be the first to receive our special launch pricing when we go live.
-              </p>
-            </div>
+        <h1
+          className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 sm:mb-4 ${
+            isLight ? 'text-slate-900' : ''
+          }`}
+          style={{ fontFamily: "'Outfit', sans-serif" }}
+        >
+          Pick Your <span className="text-red-500">Pepper</span>
+        </h1>
 
-            {/* Form Validation Summary */}
-            {Object.keys(errors).length > 0 && (
-              <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-sm text-red-600 font-medium">Please fix the following errors:</p>
-                <ul className="mt-1 text-sm text-red-600 list-disc list-inside">
-                  {Object.values(errors).map((error, index) => (
-                    <li key={index}>{error}</li>
-                  ))}
-                </ul>
+        <p
+          className={`text-xs sm:text-sm md:text-base max-w-md mx-auto ${
+            isLight ? 'text-stone-500' : 'text-slate-400'
+          }`}
+        >
+          From solo creators to enterprise teams — every plan is packed with flavor. No hidden costs, no surprises.
+        </p>
+
+        {/* Billing toggle */}
+        <div
+          className={`flex items-center justify-center gap-1 mt-6 sm:mt-8 rounded-full p-1 w-fit mx-auto ${
+            isLight ? 'bg-stone-100' : 'bg-slate-800'
+          }`}
+        >
+          <button
+            onClick={() => setBilling('monthly')}
+            className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all ${
+              billing === 'monthly'
+                ? 'bg-red-500 text-white'
+                : isLight
+                ? 'text-stone-500 hover:text-stone-800'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            Monthly
+          </button>
+          <button
+            onClick={() => setBilling('annual')}
+            className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+              billing === 'annual'
+                ? 'bg-red-500 text-white'
+                : isLight
+                ? 'text-stone-500 hover:text-stone-800'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            Annual{' '}
+            <span className="text-[10px] bg-green-500 text-white px-1.5 py-0.5 rounded-full font-bold">
+              Save 20%
+            </span>
+          </button>
+        </div>
+      </div>
+
+      {/* Plans */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        {plans.map((plan) => (
+          <div
+            key={plan.name}
+            className={`relative rounded-2xl p-6 sm:p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(239,68,68,0.15)] ${
+              plan.popular
+                ? isLight
+                  ? 'bg-white border-2 border-red-200 shadow-lg'
+                  : 'bg-slate-800 border-2 border-slate-600 ring-1 ring-red-500/20'
+                : isLight
+                ? 'bg-white border border-stone-200 shadow-sm hover:border-stone-300'
+                : 'bg-slate-900 border border-slate-800 hover:border-slate-600'
+            }`}
+          >
+            {plan.popular && (
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-red-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full whitespace-nowrap">
+                Most Popular
               </div>
             )}
 
-            {/* Form */}
-            <div className="space-y-5">
-              {/* Name Input */}
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <User className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your name *"
-                  required
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all duration-200 bg-white/70 backdrop-blur-sm ${
-                    errors.name 
-                      ? 'border-red-500 focus:ring-red-500/20 focus:border-red-500' 
-                      : 'border-gray-200 focus:ring-red-500/20 focus:border-red-500'
-                  }`}
-                />
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-600">{errors.name}</p>
-                )}
-              </div>
-
-              {/* Email Input */}
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="your@email.com *"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all duration-200 bg-white/70 backdrop-blur-sm ${
-                    errors.email 
-                      ? 'border-red-500 focus:ring-red-500/20 focus:border-red-500' 
-                      : 'border-gray-200 focus:ring-red-500/20 focus:border-red-500'
-                  }`}
-                />
-                {errors.email && (
-                  <p className="mt-1 text-sm text-red-600">{errors.email}</p>
-                )}
-              </div>
-
-              {/* Company URL Input */}
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Building className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  type="url"
-                  name="companyUrl"
-                  placeholder="Company URL * (e.g., company.com)"
-                  required
-                  value={formData.companyUrl}
-                  onChange={handleInputChange}
-                  className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all duration-200 bg-white/70 backdrop-blur-sm ${
-                    errors.companyUrl 
-                      ? 'border-red-500 focus:ring-red-500/20 focus:border-red-500' 
-                      : 'border-gray-200 focus:ring-red-500/20 focus:border-red-500'
-                  }`}
-                />
-                {errors.companyUrl && (
-                  <p className="mt-1 text-sm text-red-600">{errors.companyUrl}</p>
-                )}
-              </div>
-
-              {/* Message Input */}
-              <div className="relative">
-                <div className="absolute top-3 left-0 pl-4 flex items-start pointer-events-none">
-                  <MessageSquare className="h-5 w-5 text-gray-400" />
-                </div>
-                <textarea
-                  name="message"
-                  placeholder="Tell us about your needs *"
-                  rows="3"
-                  required
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all duration-200 bg-white/70 backdrop-blur-sm resize-none ${
-                    errors.message 
-                      ? 'border-red-500 focus:ring-red-500/20 focus:border-red-500' 
-                      : 'border-gray-200 focus:ring-red-500/20 focus:border-red-500'
-                  }`}
-                />
-                {errors.message && (
-                  <p className="mt-1 text-sm text-red-600">{errors.message}</p>
-                )}
-              </div>
-
-              {/* Submit Button */}
-              <button
-                type="button"
-                onClick={handleSubmit}
-                className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-red-500/25 hover:shadow-red-500/40 cursor-pointer"
-              >
-                Submit
-              </button>
+            {/* Pepper image */}
+            <div className="w-12 h-12 sm:w-16 sm:h-16 mb-4 sm:mb-5">
+              <img src={plan.pepper} alt={plan.name} className="w-full h-full object-contain" />
             </div>
 
-            {/* Required Fields Notice */}
-            <div className="mt-4 text-center">
-              <p className="text-xs text-gray-500">
-                * All fields are required
-              </p>
-            </div>
+            {/* Plan name & description */}
+            <h3 className={`text-lg sm:text-xl font-bold mb-1 ${isLight ? 'text-slate-900' : 'text-white'}`}>
+              {plan.name}
+            </h3>
+            <p className={`text-xs mb-4 sm:mb-5 ${isLight ? 'text-stone-500' : 'text-slate-400'}`}>
+              {plan.description}
+            </p>
 
-            {/* Trust Indicators */}
-            <div className="mt-2 text-center">
-              <p className="text-xs text-gray-500">
-                🔒 We respect your privacy. No spam, unsubscribe anytime.
-              </p>
+            {/* Price */}
+            <div className="mb-1">
+              <span className={`text-2xl sm:text-3xl font-extrabold ${isLight ? 'text-slate-900' : 'text-white'}`}>
+                {plan.price}
+              </span>
+              <span className={`text-xs sm:text-sm ml-1 ${isLight ? 'text-stone-500' : 'text-slate-400'}`}>
+                {plan.priceSuffix}
+              </span>
+            </div>
+            <p className={`text-[11px] mb-5 sm:mb-6 ${isLight ? 'text-stone-400' : 'text-slate-500'}`}>
+              {plan.priceNote}
+            </p>
+
+            {/* CTA */}
+            <button
+              onClick={() => {
+                if (plan.name === 'Free') {
+                  window.open('https://survey.pepperwahl.com/create-survey', '_blank', 'noopener,noreferrer');
+                } else {
+                  navigate('/contactUs');
+                }
+              }}
+              className={`w-full py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all ${plan.ctaStyle}`}
+            >
+              {plan.cta}
+            </button>
+
+            {/* Features */}
+            <div className={`mt-5 sm:mt-6 pt-5 sm:pt-6 border-t ${isLight ? 'border-stone-100' : 'border-slate-700/50'}`}>
+              {plan.prefix && (
+                <p
+                  className={`text-[10px] font-bold tracking-wider uppercase mb-3 ${
+                    isLight ? 'text-stone-400' : 'text-slate-500'
+                  }`}
+                >
+                  {plan.prefix}
+                </p>
+              )}
+              {!plan.prefix && (
+                <p
+                  className={`text-[10px] font-bold tracking-wider uppercase mb-3 ${
+                    isLight ? 'text-stone-400' : 'text-slate-500'
+                  }`}
+                >
+                  What's included:
+                </p>
+              )}
+              <ul className="space-y-2 sm:space-y-2.5">
+                {plan.features.map((f, i) => (
+                  <li
+                    key={i}
+                    className={`flex items-center gap-2 sm:gap-2.5 text-xs sm:text-[13px] ${
+                      isLight ? 'text-stone-700' : 'text-slate-300'
+                    }`}
+                  >
+                    <Check size={14} className="text-green-500 flex-shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </div>
-      </dialog>
-
-      {/* Success Popup */}
-      {showPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-black/40 via-purple-900/20 to-black/40 backdrop-blur-md animate-in fade-in duration-300">
-          <div className="bg-white px-8 py-8 rounded-2xl shadow-2xl border-0 max-w-md w-[90%] text-center space-y-6 transform animate-in zoom-in duration-300">
-            {/* Success Icon */}
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-green-600 mb-2 shadow-lg shadow-green-500/25">
-              <CheckCircle className="w-8 h-8 text-white" />
-            </div>
-            
-            {/* Success Message */}
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">You're on the list! 🎉</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Thanks for your interest! We'll send you exclusive early access pricing as soon as we launch.
-              </p>
-            </div>
-
-            {/* Additional Info */}
-            <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-xl">
-              <p className="text-sm text-gray-700">
-                <strong>What's next?</strong> Keep an eye on your inbox for updates and special offers.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+        ))}
+      </div>
     </div>
   );
 };
