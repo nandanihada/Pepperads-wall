@@ -36,6 +36,9 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 10px;
   }
 
   .glass {
@@ -93,6 +96,52 @@ const StyledWrapper = styled.div`
     color: #fefefe;
     text-shadow: 0 0 2px rgba(255, 255, 255, 0.05);
     padding: 0 5px;
+  }
+
+  /* Mobile: stack cards vertically */
+  @media (max-width: 640px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .glass {
+      width: 85vw;
+      max-width: 280px;
+      height: auto;
+      min-height: 220px;
+      margin: 0;
+      transform: rotate(0deg);
+      padding: 20px 15px 55px;
+    }
+
+    .container:hover .glass {
+      margin: 0;
+    }
+
+    .glass img {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  /* Tablet: reduce overlap */
+  @media (min-width: 641px) and (max-width: 900px) {
+    .glass {
+      width: 180px;
+      height: 240px;
+      margin: 0 -30px;
+    }
+
+    .glass img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .glass p {
+      font-size: 12px;
+    }
   }
 `;
 

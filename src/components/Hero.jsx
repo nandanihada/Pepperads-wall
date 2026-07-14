@@ -10,19 +10,10 @@ const Hero = () => {
   const { title, image, paragraph } = useQueryParamsContent();
 
   const handleStartSurvey = async () => {
-    console.log("Start Creating button clicked!");
-
-    // Redirect to https://survey.pepperwahl.com/create-survey
     const targetUrl = 'https://survey.pepperwahl.com/create-survey';
-    console.log("Opening URL:", targetUrl);
-
     const newWindow = window.open(targetUrl, '_blank', 'noopener,noreferrer');
-
     if (!newWindow) {
-      console.error("Popup blocked! Trying location.href instead");
       window.location.href = targetUrl;
-    } else {
-      console.log("Successfully opened new window");
     }
   };
 
@@ -37,11 +28,25 @@ const Hero = () => {
 
   return (
     <>
-      <section className="pt-10 pb-20 px-4">
+      <section className="hero-section pt-6 sm:pt-10 pb-10 sm:pb-20 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl font-bold mb-6 leading-tight">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
+            {/* Image - shows first on mobile */}
+            <div className="relative order-1 md:order-2">
+              <img
+                src={image || defaultImage}
+                alt="Survey Dashboard"
+                className="rounded-lg shadow-2xl w-full h-auto object-cover"
+              />
+              <div className="absolute bottom-2 right-2 sm:-bottom-4 sm:-right-4 bg-[#E31B23] text-white p-2 sm:p-3 md:p-4 rounded-lg shadow-lg">
+                <p className="font-semibold text-xs sm:text-sm md:text-base">✨ AI-Powered</p>
+                <p className="text-[10px] sm:text-xs md:text-sm">Generate forms instantly</p>
+              </div>
+            </div>
+
+            {/* Text Content - shows second on mobile */}
+            <div className="order-2 md:order-1">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight">
                 {title ? (
                   <>
                     {title} <span className="text-[#E31B23]">🌟</span>
@@ -50,29 +55,18 @@ const Hero = () => {
                   defaultTitle
                 )}
               </h1>
-              <p className="text-gray-400 text-lg mb-8">
+              <p className="text-gray-400 text-sm sm:text-base md:text-lg mb-5 sm:mb-6 md:mb-8">
                 {paragraph || "Build smart surveys fast — whether you want to create from scratch, upload a PDF, or generate one with AI."}
               </p>
-              <div className="flex flex-wrap gap-4">
-                <button onClick={handleStartSurvey} className="btn-primary flex items-center">
-                  Start Creating <ArrowRight className="ml-2 h-5 w-5" />
+              <div className="flex flex-row gap-3 sm:gap-4">
+                <button onClick={handleStartSurvey} className="btn-primary flex items-center justify-center text-sm sm:text-base px-4 sm:px-6 py-2.5 sm:py-3">
+                  Start Creating <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
                 <button
                   onClick={() => navigate('/contactUs')}
-                  className="btn-secondary flex items-center">
-                  Try AI Form Builder <ArrowRight className="ml-2 h-5 w-5" />
+                  className="btn-secondary flex items-center justify-center text-sm sm:text-base px-4 sm:px-6 py-2.5 sm:py-3">
+                  Try AI Form Builder <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
-              </div>
-            </div>
-            <div className="relative">
-              <img
-                src={image || defaultImage}
-                alt="Survey Dashboard"
-                className="rounded-lg shadow-2xl pb-10"
-              />
-              <div className="absolute -bottom-4 -right-4 bg-[#E31B23] text-white p-4 rounded-lg">
-                <p className="font-semibold">✨ AI-Powered</p>
-                <p className="text-sm">Generate forms instantly</p>
               </div>
             </div>
           </div>

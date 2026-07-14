@@ -62,7 +62,7 @@ const ResourcesHub = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-xl max-w-2xl text-gray-300"
           >
-            From blog posts to help docs — everything you need to grow with PepperAds.
+            From blog posts to help docs — everything you need to grow with Pepperwahl.
           </motion.p>
         </div>
       </div>

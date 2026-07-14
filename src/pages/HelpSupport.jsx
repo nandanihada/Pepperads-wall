@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 
 const HelpSupport = () => {
   const [showFAQs, setShowFAQs] = useState(false);
 
   const faqs = [
     {
-      question: 'How do I create a PepperAds account?',
+      question: 'How do I create a Pepperwahl account?',
       answer:
-        'Visit pepperads-bb785.web.app and click “Start for Free.” Enter your email and follow the quick onboarding process — no credit card required.',
+        'Visit Pepperwahl-bb785.web.app and click â€œStart for Free.â€ Enter your email and follow the quick onboarding process â€” no credit card required.',
     },
     {
       question: 'How do I install the survey widget on my site?',
       answer:
-        'After creating your survey, PepperAds gives you a code snippet. Copy and paste it into your website’s <head> or use integrations like Google Tag Manager, Webflow, or WordPress.',
+        'After creating your survey, Pepperwahl gives you a code snippet. Copy and paste it into your websiteâ€™s <head> or use integrations like Google Tag Manager, Webflow, or WordPress.',
     },
     {
-      question: 'Do I need technical skills to use PepperAds?',
+      question: 'Do I need technical skills to use Pepperwahl?',
       answer:
         'No. The platform is designed to be user-friendly and code-free. But for advanced tracking or integrations, you can use tools like Make, Zapier, or connect with your developer.',
     },
@@ -25,14 +25,14 @@ const HelpSupport = () => {
         'You can email us at support@pepperwahl.com or use the chat widget in your dashboard for live help.',
     },
     {
-      question: 'My survey isn’t showing on my site. What should I do?',
+      question: 'My survey isnâ€™t showing on my site. What should I do?',
       answer:
-        'Ensure the code snippet is correctly placed in your site’s HTML. If using a CMS (like WordPress), check plugin compatibility or caching settings. Contact support if the issue persists.',
+        'Ensure the code snippet is correctly placed in your siteâ€™s HTML. If using a CMS (like WordPress), check plugin compatibility or caching settings. Contact support if the issue persists.',
     },
     {
       question: 'How fast is support response time?',
       answer:
-        'Our team usually replies within 1–4 hours during business days (Mon–Sat, 9AM to 9PM IST).',
+        'Our team usually replies within 1â€“4 hours during business days (Monâ€“Sat, 9AM to 9PM IST).',
     },
   ];
 
@@ -43,7 +43,7 @@ const HelpSupport = () => {
           <span className="text-red-500">Help</span> & Support
         </h1>
         <p className="text-gray-400 text-lg mb-12 animate-fade-in">
-          Need a quick answer or technical help? We’ve got walkthroughs, FAQs, and live support to help you get unstuck fast.
+          Need a quick answer or technical help? Weâ€™ve got walkthroughs, FAQs, and live support to help you get unstuck fast.
         </p>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">

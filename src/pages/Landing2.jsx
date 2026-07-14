@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import ThreeCard from '../Animationcards/Threecard';
 import StepsComponent from '../Animationcards/stepcards';
@@ -310,7 +309,6 @@ const Landing2 = () => {
   };
 
   // Enhanced scroll-triggered animations with different configurations
-  const [navRef, navInView] = useScrollAnimation({ margin: "0px" });
   const [heroRef, heroInView] = useScrollAnimation({ margin: "-50px" });
   const [blurTextRef, blurTextInView] = useScrollAnimation({ amount: 0.3 });
   const [featuresRef, featuresInView] = useScrollAnimation({ margin: "-50px" });
@@ -361,17 +359,6 @@ const Landing2 = () => {
         ))}
       </motion.div>
 
-      {/* Navbar with smooth fade entrance */}
-      <motion.section
-        ref={navRef}
-        className="mb-6 sm:mb-8 md:mb-10 relative z-50"
-        variants={animationVariants.fadeInDown}
-        initial="hidden"
-        animate={navInView ? "visible" : "hidden"}
-      >
-        <Navbar />
-      </motion.section>
-
       {/* Hero Section with cinematic entrance */}
       <motion.section
         ref={heroRef}
@@ -421,7 +408,7 @@ const Landing2 = () => {
       {/* Feature Cards Section with enhanced stagger */}
       <motion.section
         ref={cardsRef}
-        className="mb-16 sm:mb-20 md:mb-24 lg:mb-36 relative z-10 px-4"
+        className="mb-16 sm:mb-20 md:mb-24 lg:mb-36 relative z-10 px-4 overflow-hidden"
         variants={animationVariants.staggerContainer}
         initial="hidden"
         animate={cardsInView ? "visible" : "hidden"}
@@ -437,7 +424,7 @@ const Landing2 = () => {
       {/* Enhanced Template Section with sophisticated split animations - Mobile Optimized */}
       <motion.section
         ref={templateRef}
-        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-black relative z-10"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-black relative z-10 overflow-hidden"
         variants={animationVariants.staggerContainer}
         initial="hidden"
         animate={templateInView ? "visible" : "hidden"}
@@ -467,18 +454,18 @@ const Landing2 = () => {
           }}
         />
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-10 md:gap-12 px-4 sm:px-6">
-          {/* Left Text Content with enhanced text styling - Mobile Optimized */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-10 sm:gap-12 md:gap-14 lg:gap-16 px-4 sm:px-6 max-w-6xl mx-auto">
+          {/* Left Text Content */}
           <motion.div
             className="max-w-md text-center lg:text-left w-full"
             variants={animationVariants.slideInLeft}
           >
             <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 sm:mb-6 leading-tight overflow-hidden"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-4 leading-tight overflow-hidden"
               variants={animationVariants.textReveal}
             >
               <motion.span 
-                className="block text-white/90 mb-1 sm:mb-2"
+                className="block text-white/90 mb-1"
                 whileHover={{
                   textShadow: "0 0 8px rgba(255,255,255,0.4)",
                   transition: { duration: 0.3 }
@@ -500,7 +487,7 @@ const Landing2 = () => {
               </motion.span>
             </motion.h2>
             <motion.p
-              className="text-base sm:text-lg text-gray-400 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed mb-6 lg:mb-0"
               variants={animationVariants.fadeInUp}
               whileHover={{
                 color: "#ffffff",
@@ -511,36 +498,20 @@ const Landing2 = () => {
             </motion.p>
           </motion.div>
 
-          {/* Right Card Swap Stack with enhanced animations - Mobile Optimized */}
+          {/* Right Card Swap Stack - Mobile Optimized */}
           <motion.div
-            style={{ 
-              height: '300px', 
-              width: '280px',
-              position: 'relative'
-            }}
-            className="sm:h-[400px] sm:w-[350px] md:h-[500px] md:w-[420px] lg:h-[600px] lg:w-[500px] mx-auto"
+            className="relative flex-shrink-0 mx-auto lg:mx-0"
             variants={animationVariants.slideInRight}
-            whileHover={hoverEffects.lift}
           >
-            {/* Floating decorative elements for cards - Scaled for mobile */}
-            <motion.div 
-              className="absolute -top-6 sm:-top-8 md:-top-10 -right-6 sm:-right-8 md:-right-10 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-pink-500/10 blur-xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.6, 0.3],
-                transition: {
-                  duration: 5,
-                  repeat: Infinity
-                }
-              }}
-            />
-            
-            <CardSwap
-              cardDistance={40}
-              verticalDistance={50}
-              delay={5000}
-              pauseOnHover={false}
-            >
+            <div className="scale-[0.85] sm:scale-100 md:scale-110 lg:scale-125 origin-center">
+              <CardSwap
+                width={250}
+                height={220}
+                cardDistance={25}
+                verticalDistance={30}
+                delay={5000}
+                pauseOnHover={false}
+              >
               <Card>
                 <motion.img
                   src="https://i.postimg.cc/j5FXYtmR/neon-geometric-background-1.jpg"
@@ -575,6 +546,7 @@ const Landing2 = () => {
                 />
               </Card>
             </CardSwap>
+            </div>
           </motion.div>
         </div>
       </motion.section>

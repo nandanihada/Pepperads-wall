@@ -40,16 +40,16 @@ app.post('/send-welcome', async (req, res) => {
     const mailOptions = {
       from: process.env.MAIL_USER,
       to: email,
-      subject: 'Welcome to PepperAds 🎉',
+      subject: 'Welcome to Pepperwahl 🎉',
       html: `
         <p>Hi <b>${name}</b>,</p>
-        <p>Thanks for signing up with <b>PepperAds</b>! We're thrilled to have you on board.</p>
+        <p>Thanks for signing up with <b>Pepperwahl</b>! We're thrilled to have you on board.</p>
         <p>Our team will contact you shortly to understand your goals and help you get started.</p>
         <p>You can also book a meeting with us directly using the link below:</p>
         <p><a href="https://calendly.com/kumar-s-pepeleads/30min" target="_blank">📅 Schedule a 30-minute meeting</a></p>
         <p>Looking forward to working with you!</p>
         <br />
-        <p>Best regards,<br /><b>Team PepperAds</b></p>
+        <p>Best regards,<br /><b>Team Pepperwahl</b></p>
       `,
     };
 
