@@ -129,6 +129,12 @@ const Navbar = () => {
             Pricing
           </Link>
 
+          <a href="https://survey.pepperwahl.com/login" target="_blank" rel="noopener noreferrer">
+            <button className="bg-white hover:bg-gray-100 text-[#E31B23] font-bold px-4 lg:px-5 py-2 rounded-md text-base lg:text-lg transition">
+              Sign In
+            </button>
+          </a>
+
           <a href="https://survey.pepperwahl.com/create-survey" target="_blank" rel="noopener noreferrer">
             <button className="bg-[#E31B23] hover:bg-red-700 text-white px-4 lg:px-5 py-2 rounded-md text-base lg:text-lg transition">
               Get Started
@@ -223,8 +229,13 @@ const Navbar = () => {
             Pricing
           </Link>
 
-          {/* CTA Button */}
-          <div className="pt-3">
+          {/* CTA Buttons */}
+          <div className="pt-3 space-y-2">
+            <a href="https://survey.pepperwahl.com/login" target="_blank" rel="noopener noreferrer" className="block">
+              <button className="w-full bg-white hover:bg-gray-100 text-[#E31B23] font-bold px-5 py-3 rounded-md text-base transition">
+                Sign In
+              </button>
+            </a>
             <a href="https://survey.pepperwahl.com/create-survey" target="_blank" rel="noopener noreferrer" className="block">
               <button className="w-full bg-[#E31B23] hover:bg-red-700 text-white px-5 py-3 rounded-md text-base font-medium transition">
                 Get Started

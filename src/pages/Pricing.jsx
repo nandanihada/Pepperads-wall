@@ -195,8 +195,10 @@ const Pricing = () => {
               onClick={() => {
                 if (plan.name === 'Free') {
                   window.open('https://survey.pepperwahl.com/create-survey', '_blank', 'noopener,noreferrer');
-                } else {
-                  navigate('/contactUs');
+                } else if (plan.name === 'Pro') {
+                  window.open('https://survey.pepperwahl.com/upgrade', '_blank', 'noopener,noreferrer');
+                } else if (plan.name === 'Enterprise') {
+                  window.location.href = 'mailto:business@moustacheleads.com';
                 }
               }}
               className={`w-full py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all ${plan.ctaStyle}`}
