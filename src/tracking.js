@@ -123,4 +123,17 @@
     },
     true
   );
+
+  // 5. Append session ID to all links going to the main app for user linking
+  document.addEventListener("click", function(e) {
+    var link = e.target.closest("a");
+    if (!link) return;
+    var href = link.getAttribute("href") || "";
+    if (href.includes("dashboard.pepperwahl.com") || href.includes("localhost:5173")) {
+      if (!href.includes("ref_session")) {
+        var separator = href.includes("?") ? "&" : "?";
+        link.setAttribute("href", href + separator + "ref_session=" + sid);
+      }
+    }
+  }, false);
 })();
