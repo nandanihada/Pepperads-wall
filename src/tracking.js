@@ -129,7 +129,7 @@
     var link = e.target.closest("a");
     if (!link) return;
     var href = link.getAttribute("href") || "";
-    if (href.includes("dashboard.pepperwahl.com") || href.includes("localhost:5173")) {
+    if (href.includes("survey.pepperwahl.com") || href.includes("localhost:5173")) {
       if (!href.includes("ref_session")) {
         var separator = href.includes("?") ? "&" : "?";
         link.setAttribute("href", href + separator + "ref_session=" + sid);
