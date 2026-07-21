@@ -1,8 +1,9 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-const Layout = ({ children }) => {
+import CookieConsent from './CookieConsent';
 
+const Layout = ({ children }) => {
   return (
     <div className="min-h-screen bg-black flex flex-col">
       <Navbar />
@@ -10,6 +11,7 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <CookieConsent />
     </div>
   );
 };

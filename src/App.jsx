@@ -58,6 +58,11 @@ import CaseStudies from './pages/CaseStudies';
 import AIChatWidget from './components/AIChatWidget';
 import NotFound from './pages/NotFound';
 import Plan from './pages/plan';
+import PrivacyPolicy from './pages/DataPolicy';
+import TermsOfUse from './pages/TermsOfUse';
+import AcceptableUses from './pages/AcceptableUses';
+import CookieNoticePage from './pages/CookieNoticePage';
+import DoNotSell from './pages/DoNotSell';
 
 
 const HomePage = () => <Hero />;
@@ -134,6 +139,11 @@ const App = () => {
             
             <Route path="*" element={<NotFound />} />
              <Route path="/plan" element={<Plan />} />
+             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+             <Route path="/terms-of-use" element={<TermsOfUse />} />
+             <Route path="/acceptable-use" element={<AcceptableUses />} />
+             <Route path="/cookie-notice" element={<CookieNoticePage />} />
+             <Route path="/do-not-sell" element={<DoNotSell />} />
             {/* <Route path="/termandcon" element={<Termandcon/>} /> */}
            
        

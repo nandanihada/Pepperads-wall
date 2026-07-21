@@ -1,6 +1,7 @@
 // components/Footer.tsx
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaXTwitter } from 'react-icons/fa6';
+import { openCookiePreferences } from './CookieConsent';
 
 const Footer = () => {
   return (
@@ -93,8 +94,25 @@ const Footer = () => {
           
           <li><a href="/grow-revenue" className="hover:text-red-500">Grow with Survey Revenue</a></li>
         </div>
+
+        {/* Legal Links */}
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-6 mb-4">
+          <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-500 text-xs sm:text-sm transition">Privacy Policy</a>
+          <span className="text-gray-600 hidden sm:inline">|</span>
+          <a href="/terms-of-use" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-500 text-xs sm:text-sm transition">Terms & Conditions</a>
+          <span className="text-gray-600 hidden sm:inline">|</span>
+          <a href="/acceptable-use" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-500 text-xs sm:text-sm transition">Acceptable Use Policy</a>
+          <span className="text-gray-600 hidden sm:inline">|</span>
+          <a href="/cookie-notice" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-500 text-xs sm:text-sm transition">Cookie Notice</a>
+          <span className="text-gray-600 hidden sm:inline">|</span>
+          <a href="/do-not-sell" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-500 text-xs sm:text-sm transition">Do Not Sell</a>
+          <span className="text-gray-600 hidden sm:inline">|</span>
+          <a href="/contactUs" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-500 text-xs sm:text-sm transition">Contact</a>
+          <span className="text-gray-600 hidden sm:inline">|</span>
+          <button onClick={openCookiePreferences} className="text-gray-400 hover:text-red-500 text-xs sm:text-sm transition">Cookie Preferences</button>
+        </div>
+
         <p className="text-gray-500 text-sm">© 2025 Pepperwahl. All rights reserved.</p>
-        <a href="/termandcon.html">Terms of Use</a>
 
       </div>
     </footer>
