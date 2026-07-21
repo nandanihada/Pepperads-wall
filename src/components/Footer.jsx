@@ -63,8 +63,13 @@ const Footer = () => {
             <li><a href="/ai-creator" className="hover:text-red-500">How to Use AI Form Creator</a></li>
             <li><a href="/tips" className="hover:text-red-500">Survey Tips</a></li>
             <li><a href="/best-practices" className="hover:text-red-500">Best Practices</a></li>
-            <li><a href="/grow-revenue" className="hover:text-red-500">Grow with Survey Revenue</a></li>
             <li><a href="/ai-prompts" className="hover:text-red-500">AI Prompts Library</a></li>
+          </ul>
+
+          <h3 className="text-red-500 font-semibold mb-4 mt-8">Get in Touch</h3>
+          <ul className="space-y-2 text-gray-300">
+            <li><a href="tel:+918700624209" className="hover:text-red-500">+91-8700624209</a></li>
+            <li><a href="mailto:support@pepperwahl.com" className="hover:text-red-500">support@pepperwahl.com</a></li>
           </ul>
         </div>
 
@@ -91,8 +96,6 @@ const Footer = () => {
           <a href="https://instagram.com" target="_blank"><FaInstagram /></a>
           <a href="https://facebook.com" target="_blank"><FaFacebookF /></a>
           <a href="https://x.com" target="_blank"><FaXTwitter /></a>
-          
-          <li><a href="/grow-revenue" className="hover:text-red-500">Grow with Survey Revenue</a></li>
         </div>
 
         {/* Legal Links */}

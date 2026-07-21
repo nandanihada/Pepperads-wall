@@ -9,9 +9,9 @@ import { Cookie, Shield, BarChart3, Megaphone, Settings2 } from 'lucide-react';
 
 const DEFAULT_PREFS = {
   essential: true,
-  functional: false,
-  analytics: false,
-  marketing: false,
+  functional: true,
+  analytics: true,
+  marketing: true,
 };
 
 /** Get saved cookie preferences */
@@ -61,6 +61,30 @@ const CookieConsent = () => {
     setPrefs(preferences);
     setVisible(false);
     setShowCustomize(false);
+
+    // Send to backend
+    const sid = sessionStorage.getItem('pw_sid') || '';
+    const payload = {
+      user_id: 'landing_visitor',
+      user_email: 'landing@pepperwahl.com',
+      user_name: 'Landing Page Visitor',
+      session_id: sid,
+      preferences: preferences,
+    };
+
+    fetch('https://hostslice.onrender.com/api/tracking/cookie-preference', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch(() => {});
+
+    fetch('http://localhost:5000/api/tracking/cookie-preference', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch(() => {});
   };
 
   const handleAcceptAll = () => {
