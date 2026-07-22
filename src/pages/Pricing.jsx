@@ -13,60 +13,60 @@ const Pricing = () => {
     {
       name: 'Free',
       pepper: '/red_chilli.png',
-      description: 'Get started with surveys — no credit card needed.',
+      description: 'Everything you need to publish your first surveys.',
       price: billing === 'monthly' ? '₹0' : '₹0',
-      priceSuffix: '/ forever',
-      priceNote: 'Free to start',
-      cta: 'Start Free',
+      priceSuffix: ' forever',
+      priceNote: 'No credit card required',
+      cta: 'Start for free',
       ctaStyle: 'border-2 border-red-500 text-red-500 hover:bg-red-500/10',
       popular: false,
       features: [
-        '2,000 responses / month',
-        '70 AI-generated surveys / month',
-        'AI editing assistance',
-        'Survey widget embed',
-        'Pepperwahl branding',
+        '2 themes to brand your survey',
+        'Publish via web link',
+        'Share to social media',
+        'Embed & add to websites',
+        '24/7 email support',
       ],
     },
     {
-      name: 'Pro',
+      name: 'Premium',
       pepper: '/green_chilli.png',
-      description: 'For growing teams that need insights and exports.',
-      price: billing === 'monthly' ? '₹2,000' : '₹1,600',
-      priceSuffix: '/ month',
+      description: 'Logic, AI, and analysis that turn responses into decisions.',
+      price: billing === 'monthly' ? '$25' : '$20',
+      priceSuffix: ' per month',
       priceNote: billing === 'annual' ? 'billed annually' : 'billed monthly',
-      cta: 'Upgrade to Pro',
+      cta: 'Choose Premium',
       ctaStyle: 'bg-red-500 text-white hover:bg-red-600',
       popular: true,
-      prefix: 'EVERYTHING IN FREE, PLUS:',
+      prefix: 'EVERYTHING IN FREE, PLUS',
       features: [
-        '10,000 responses / month',
-        '200 AI-generated surveys / month',
-        'Download CSV exports',
-        'Advanced analytics & AI summary',
-        'Remove Pepperwahl branding',
-        'Priority support',
+        'Advanced logic features',
+        'Analyze with AI',
+        'Statistical significance',
+        'Multilingual surveys',
+        'Data exports — CSV, XLS, PPT, PDF',
+        'User accounts & roles',
+        'Priority phone support',
       ],
     },
     {
       name: 'Enterprise',
       pepper: '/yellow_chilli.png',
-      description: 'Custom scale, full control, dedicated support.',
+      description: 'Governance, targeting, and team workflows at scale.',
       price: 'Custom',
       priceSuffix: '',
       priceNote: 'tailored to your team',
-      cta: 'Contact Sales',
+      cta: 'Contact sales',
       ctaStyle: 'border-2 border-stone-400 text-stone-300 hover:bg-stone-800/50',
       popular: false,
-      prefix: 'EVERYTHING IN PRO, PLUS:',
+      prefix: 'EVERYTHING IN PREMIUM, PLUS',
       features: [
-        'Unlimited responses',
-        'Unlimited AI surveys',
-        'Custom domain',
-        'Webhooks & API access',
-        'Team members & roles',
-        'Dedicated account manager',
-        'SSO & advanced security',
+        'Roles, workgroups & permissions',
+        'Multi-survey analysis',
+        'Advanced branching & skip logic',
+        'Response quotas & recurring surveys',
+        'Popup targeting & email tracking',
+        'Mobile SDK — act on responses',
       ],
     },
   ];
@@ -195,7 +195,7 @@ const Pricing = () => {
               onClick={() => {
                 if (plan.name === 'Free') {
                   window.open('https://survey.pepperwahl.com/create-survey', '_blank', 'noopener,noreferrer');
-                } else if (plan.name === 'Pro') {
+                } else if (plan.name === 'Premium') {
                   window.open('https://survey.pepperwahl.com/upgrade', '_blank', 'noopener,noreferrer');
                 } else if (plan.name === 'Enterprise') {
                   window.location.href = 'mailto:business@moustacheleads.com';
@@ -243,6 +243,170 @@ const Pricing = () => {
           </div>
         ))}
       </div>
+
+      {/* Compare Features Section */}
+      <CompareFeatures isLight={isLight} />
+    </div>
+  );
+};
+
+const CompareFeatures = ({ isLight }) => {
+  const [expanded, setExpanded] = useState(false);
+
+  const featureData = [
+    {
+      category: 'CREATE & DESIGN',
+      features: [
+        { name: 'Themes', free: '2 themes', premium: 'All themes', enterprise: 'All themes' },
+        { name: 'Premium themes', free: false, premium: true, enterprise: true },
+        { name: 'Advanced logic features', free: false, premium: true, enterprise: true },
+        { name: 'Advanced branching', free: false, premium: false, enterprise: true },
+        { name: 'Skip logic for questions & pages', free: false, premium: false, enterprise: true },
+        { name: 'Custom thank-you page', free: false, premium: false, enterprise: true },
+      ],
+    },
+    {
+      category: 'SHARE & COLLECT',
+      features: [
+        { name: 'Publish via web link', free: true, premium: true, enterprise: true },
+        { name: 'Share to social media', free: true, premium: true, enterprise: true },
+        { name: 'Add to websites', free: true, premium: true, enterprise: true },
+        { name: 'QR codes', free: false, premium: true, enterprise: true },
+        { name: 'Multilingual surveys', free: false, premium: true, enterprise: true },
+        { name: 'Password-protected surveys', free: false, premium: true, enterprise: true },
+        { name: 'Email invitations', free: false, premium: true, enterprise: true },
+        { name: 'View, allow, or block IP addresses', free: false, premium: true, enterprise: true },
+        { name: 'Targeting for popup surveys', free: false, premium: false, enterprise: true },
+        { name: 'Recurring surveys', free: false, premium: false, enterprise: true },
+        { name: 'Response quotas', free: false, premium: false, enterprise: true },
+      ],
+    },
+    {
+      category: 'FOLLOW-UP & REMINDERS',
+      features: [
+        { name: 'Confirmation email to respondents', free: 'Coming', premium: true, enterprise: true },
+        { name: 'Schedule reminders by email', free: false, premium: true, enterprise: true },
+        { name: 'Track email opens, clicks & response rates', free: false, premium: false, enterprise: true },
+      ],
+    },
+    {
+      category: 'ANALYZE',
+      features: [
+        { name: 'Analyze with AI', free: false, premium: true, enterprise: true },
+        { name: 'Statistical significance', free: false, premium: true, enterprise: true },
+        { name: 'Customize chart colors', free: false, premium: true, enterprise: true },
+        { name: 'Data exports', free: false, premium: true, enterprise: true },
+        { name: 'Print / export CSV, XLS, PPT, PDF', free: false, premium: true, enterprise: true },
+        { name: 'Multi-survey analysis', free: false, premium: false, enterprise: true },
+        { name: 'Flag poor-quality responses', free: false, premium: false, enterprise: true },
+        { name: 'Share links to survey data', free: true, premium: true, enterprise: true },
+        { name: 'iOS & Android apps for analysis', free: true, premium: true, enterprise: true },
+      ],
+    },
+    {
+      category: 'TEAM & SECURITY',
+      features: [
+        { name: 'User accounts & roles', free: false, premium: true, enterprise: true },
+        { name: 'Assign roles with workgroups', free: false, premium: false, enterprise: true },
+        { name: 'Tag people in comments', free: false, premium: false, enterprise: true },
+        { name: 'Password protection for dashboards', free: false, premium: false, enterprise: true },
+        { name: 'Mobile SDK — take action on responses', free: false, premium: false, enterprise: true },
+      ],
+    },
+    {
+      category: 'SUPPORT',
+      features: [
+        { name: '24/7 email support', free: true, premium: true, enterprise: true },
+        { name: 'Phone support', free: false, premium: true, enterprise: true },
+        { name: 'Priority phone support', free: false, premium: false, enterprise: true },
+      ],
+    },
+  ];
+
+  const renderCell = (value) => {
+    if (value === true) return <Check size={16} className="text-green-500 mx-auto" />;
+    if (value === false) return <span className="text-stone-400">—</span>;
+    return <span className={`text-xs ${isLight ? 'text-stone-600' : 'text-slate-400'}`}>{value}</span>;
+  };
+
+  return (
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20">
+      <div className="text-center mb-8">
+        <h2 className={`text-2xl sm:text-3xl font-bold mb-2 ${isLight ? 'text-stone-900' : 'text-white'}`} style={{ fontFamily: "'Outfit', sans-serif" }}>
+          Compare every feature
+        </h2>
+        <p className={`text-sm ${isLight ? 'text-stone-500' : 'text-slate-400'}`}>
+          The headline features are above. Expand to see the full list, line by line.
+        </p>
+      </div>
+
+      <div className="text-center mb-8">
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full border text-sm font-medium transition-all ${
+            isLight
+              ? 'border-stone-300 text-stone-700 hover:bg-stone-50'
+              : 'border-slate-600 text-slate-300 hover:bg-slate-800'
+          }`}
+        >
+          {expanded ? 'Show fewer features' : 'Show all features'}
+          <svg
+            className={`w-4 h-4 transition-transform ${expanded ? 'rotate-180' : ''}`}
+            fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+
+      {expanded && (
+        <div className={`rounded-2xl overflow-hidden border ${isLight ? 'border-stone-200' : 'border-slate-700'}`}>
+          {/* Table Header */}
+          <div className={`grid grid-cols-4 ${isLight ? 'bg-slate-800 text-white' : 'bg-slate-800 text-white'}`}>
+            <div className="p-3 sm:p-4 text-xs sm:text-sm font-semibold">Feature</div>
+            <div className="p-3 sm:p-4 text-xs sm:text-sm font-medium text-center">Free</div>
+            <div className="p-3 sm:p-4 text-xs sm:text-sm font-medium text-center text-green-400">Premium</div>
+            <div className="p-3 sm:p-4 text-xs sm:text-sm font-medium text-center">Enterprise</div>
+          </div>
+
+          {/* Feature Rows */}
+          {featureData.map((section) => (
+            <div key={section.category}>
+              {/* Category Header */}
+              <div className={`px-3 sm:px-4 py-2.5 ${isLight ? 'bg-stone-100' : 'bg-slate-900'}`}>
+                <p className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-wider ${isLight ? 'text-stone-500' : 'text-slate-500'}`}>
+                  {section.category}
+                </p>
+              </div>
+
+              {/* Feature Rows */}
+              {section.features.map((feature, idx) => (
+                <div
+                  key={feature.name}
+                  className={`grid grid-cols-4 ${
+                    isLight
+                      ? idx % 2 === 0 ? 'bg-white' : 'bg-stone-50'
+                      : idx % 2 === 0 ? 'bg-slate-900/50' : 'bg-slate-900'
+                  } ${isLight ? 'border-t border-stone-100' : 'border-t border-slate-800'}`}
+                >
+                  <div className={`p-3 sm:p-4 text-xs sm:text-[13px] ${isLight ? 'text-stone-700' : 'text-slate-300'}`}>
+                    {feature.name}
+                  </div>
+                  <div className="p-3 sm:p-4 text-center flex items-center justify-center">
+                    {renderCell(feature.free)}
+                  </div>
+                  <div className="p-3 sm:p-4 text-center flex items-center justify-center">
+                    {renderCell(feature.premium)}
+                  </div>
+                  <div className="p-3 sm:p-4 text-center flex items-center justify-center">
+                    {renderCell(feature.enterprise)}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import CookieConsent from './CookieConsent';
 
 const Layout = ({ children }) => {
   return (
@@ -11,7 +10,6 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
-      <CookieConsent />
     </div>
   );
 };
