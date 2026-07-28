@@ -63,6 +63,7 @@ import TermsOfUse from './pages/TermsOfUse';
 import AcceptableUses from './pages/AcceptableUses';
 import CookieNoticePage from './pages/CookieNoticePage';
 import DoNotSell from './pages/DoNotSell';
+import ReferAndEarn from './pages/ReferAndEarn';
 
 
 const HomePage = () => <Hero />;
@@ -144,6 +145,7 @@ const App = () => {
              <Route path="/acceptable-use" element={<AcceptableUses />} />
              <Route path="/cookie-notice" element={<CookieNoticePage />} />
              <Route path="/do-not-sell" element={<DoNotSell />} />
+             <Route path="/refer-and-earn" element={<ReferAndEarn />} />
             {/* <Route path="/termandcon" element={<Termandcon/>} /> */}
            
        

@@ -128,6 +128,9 @@ const Navbar = () => {
           <Link to="/pricing" className="text-white hover:text-[#E31B23] text-base lg:text-lg transition-colors">
             Pricing
           </Link>
+          <Link to="/refer-and-earn" className="text-white hover:text-[#E31B23] text-base lg:text-lg transition-colors font-medium">
+            Refer & Earn
+          </Link>
 
           <a href="https://survey.pepperwahl.com/login" target="_blank" rel="noopener noreferrer">
             <button className="bg-white hover:bg-gray-100 text-[#E31B23] font-bold px-4 lg:px-5 py-2 rounded-md text-base lg:text-lg transition">
@@ -227,6 +230,9 @@ const Navbar = () => {
           </a>
           <Link to="/pricing" onClick={() => setMobileMenuOpen(false)} className="block text-white hover:text-[#E31B23] py-2 text-base">
             Pricing
+          </Link>
+          <Link to="/refer-and-earn" onClick={() => setMobileMenuOpen(false)} className="block text-[#E31B23] hover:text-red-400 py-2 text-base font-semibold">
+            Refer & Earn
           </Link>
 
           {/* CTA Buttons */}
