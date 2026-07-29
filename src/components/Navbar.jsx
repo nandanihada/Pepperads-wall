@@ -19,14 +19,14 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
 
         {/* Logo Section */}
-        <div className="flex items-center gap-2 mr-8 lg:mr-12">
+        <div className="flex items-center gap-2 mr-6 lg:mr-10">
           <a href="/" className="flex items-center">
             <img
               src="/favicon.png"
               alt="Pepperwahl Logo"
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain"
+              className="h-7 sm:h-8 md:h-10 w-auto object-contain"
             />
-            <span className="text-xl sm:text-2xl md:text-[28px] font-bold ml-2 tracking-tight whitespace-nowrap">
+            <span className="text-lg sm:text-xl md:text-2xl font-bold ml-2 tracking-tight whitespace-nowrap">
               <span className="text-[#E31B23]">Pepper</span><span className="text-white">wahl</span>
             </span>
           </a>
@@ -42,7 +42,7 @@ const Navbar = () => {
         </button>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+        <div className="hidden md:flex items-center space-x-3 lg:space-x-6">
           {/* Features Dropdown */}
           <div className="relative">
             <button
@@ -51,9 +51,9 @@ const Navbar = () => {
                 setHowItWorksOpen(false);
                 setResourcesOpen(false);
               }}
-              className="text-white hover:text-[#E31B23] text-base lg:text-lg transition-colors flex items-center"
+              className="text-white hover:text-[#E31B23] text-sm lg:text-base transition-colors flex items-center whitespace-nowrap"
             >
-              Features <ChevronDown className="ml-1 h-4 w-4" />
+              Features <ChevronDown className="ml-1 h-3 w-3" />
             </button>
 
             {featuresOpen && (
@@ -76,9 +76,9 @@ const Navbar = () => {
                 setFeaturesOpen(false);
                 setResourcesOpen(false);
               }}
-              className="text-white hover:text-[#E31B23] text-base lg:text-lg transition-colors flex items-center"
+              className="text-white hover:text-[#E31B23] text-sm lg:text-base transition-colors flex items-center whitespace-nowrap"
             >
-              How It Works <ChevronDown className="ml-1 h-4 w-4" />
+              How It Works <ChevronDown className="ml-1 h-3 w-3" />
             </button>
 
             {howItWorksOpen && (
@@ -104,9 +104,9 @@ const Navbar = () => {
                 setFeaturesOpen(false);
                 setHowItWorksOpen(false);
               }}
-              className="text-white hover:text-[#E31B23] text-base lg:text-lg transition-colors flex items-center"
+              className="text-white hover:text-[#E31B23] text-sm lg:text-base transition-colors flex items-center whitespace-nowrap"
             >
-              Resources <ChevronDown className="ml-1 h-4 w-4" />
+              Resources <ChevronDown className="ml-1 h-3 w-3" />
             </button>
 
             {resourcesOpen && (
@@ -122,24 +122,24 @@ const Navbar = () => {
           </div>
 
           {/* Help Centre */}
-          <a href="/help-centre" className="text-white hover:text-[#E31B23] text-base lg:text-lg transition-colors">
+          <a href="/help-centre" className="text-white hover:text-[#E31B23] text-sm lg:text-base transition-colors whitespace-nowrap">
             Help Centre
           </a>
-          <Link to="/pricing" className="text-white hover:text-[#E31B23] text-base lg:text-lg transition-colors">
+          <Link to="/pricing" className="text-white hover:text-[#E31B23] text-sm lg:text-base transition-colors whitespace-nowrap">
             Pricing
           </Link>
-          <Link to="/refer-and-earn" className="text-white hover:text-[#E31B23] text-base lg:text-lg transition-colors font-medium">
+          <Link to="/refer-and-earn" className="text-[#E31B23] hover:text-red-400 text-sm lg:text-base transition-colors font-semibold whitespace-nowrap">
             Refer & Earn
           </Link>
 
           <a href="https://survey.pepperwahl.com/login" target="_blank" rel="noopener noreferrer">
-            <button className="bg-white hover:bg-gray-100 text-[#E31B23] font-bold px-4 lg:px-5 py-2 rounded-md text-base lg:text-lg transition">
+            <button className="bg-white hover:bg-gray-100 text-[#E31B23] font-bold px-3 lg:px-4 py-1.5 rounded-md text-sm lg:text-base transition whitespace-nowrap">
               Sign In
             </button>
           </a>
 
           <a href="https://survey.pepperwahl.com/create-survey" target="_blank" rel="noopener noreferrer">
-            <button className="bg-[#E31B23] hover:bg-red-700 text-white px-4 lg:px-5 py-2 rounded-md text-base lg:text-lg transition">
+            <button className="bg-[#E31B23] hover:bg-red-700 text-white px-3 lg:px-4 py-1.5 rounded-md text-sm lg:text-base transition whitespace-nowrap">
               Get Started
             </button>
           </a>
