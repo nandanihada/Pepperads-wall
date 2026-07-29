@@ -410,8 +410,7 @@ const Landing2 = () => {
         ref={cardsRef}
         className="mb-16 sm:mb-20 md:mb-24 lg:mb-36 relative z-10 px-4 overflow-hidden"
         variants={animationVariants.staggerContainer}
-        initial="hidden"
-        animate={cardsInView ? "visible" : "hidden"}
+        initial="visible"        animate="visible"
       >
         <motion.div variants={animationVariants.scaleIn}>
           <ThreeCard />
@@ -426,8 +425,7 @@ const Landing2 = () => {
         ref={templateRef}
         className="py-12 sm:py-16 md:py-20 lg:py-24 bg-black relative z-10 overflow-hidden"
         variants={animationVariants.staggerContainer}
-        initial="hidden"
-        animate={templateInView ? "visible" : "hidden"}
+        initial="visible"        animate="visible"
       >
         {/* Floating decorative elements - Scaled for mobile */}
         <motion.div 
@@ -556,8 +554,7 @@ const Landing2 = () => {
         ref={testimonialsRef}
         className="py-12 sm:py-16 md:py-20 px-4 relative z-10"
         variants={animationVariants.staggerContainer}
-        initial="hidden"
-        animate={testimonialsInView ? "visible" : "hidden"}
+        initial="visible"        animate="visible"
       >
         <motion.div
           variants={animationVariants.textReveal}
@@ -623,8 +620,7 @@ const Landing2 = () => {
         ref={stepsRef}
         className="mb-12 sm:mb-16 md:mb-20 relative z-10 px-4"
         variants={animationVariants.cinematicEntrance}
-        initial="hidden"
-        animate={stepsInView ? "visible" : "hidden"}
+        initial="visible"        animate="visible"
       >
         <StepsComponent />
       </motion.section>
@@ -634,8 +630,7 @@ const Landing2 = () => {
         ref={rotatingRef}
         className="flex justify-center items-center h-[25vh] sm:h-[30vh] md:h-[35vh] lg:h-[40vh] bg-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold space-x-2 sm:space-x-3 md:space-x-4 relative z-10 px-4"
         variants={animationVariants.staggerContainer}
-        initial="hidden"
-        animate={rotatingInView ? "visible" : "hidden"}
+        initial="visible"        animate="visible"
       >
         {/* Animated background elements - Scaled for mobile */}
         <motion.div 
@@ -733,8 +728,7 @@ const Landing2 = () => {
         ref={roadRef}
         className="mb-12 sm:mb-16 md:mb-20 relative z-10 px-4"
         variants={animationVariants.cinematicEntrance}
-        initial="hidden"
-        animate={roadInView ? "visible" : "hidden"}
+        initial="visible"        animate="visible"
       >
         <Road />
       </motion.section>
@@ -851,9 +845,9 @@ const Landing2 = () => {
       <section className="py-8 sm:py-10 bg-black text-gray-300 text-center relative z-10 px-4">
         <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">Get in Touch</h3>
         <div className="space-y-1 sm:space-y-2 text-sm sm:text-base">
-          <p className="break-words">📍 123 Startup Street, Innovation City, IN 532001</p>
-          <p>📞 <a href="tel:+919876543210" className="hover:text-red-400 transition-colors">+91-98765-43210</a></p>
-          <p>📧 <a href="mailto:contact@yourstartup.com" className="hover:text-red-400 transition-colors break-all">contact@yourstartup.com</a></p>
+          <p className="break-words">ðŸ“ 123 Startup Street, Innovation City, IN 532001</p>
+          <p>ðŸ“ž <a href="tel:+919876543210" className="hover:text-red-400 transition-colors">+91-98765-43210</a></p>
+          <p>ðŸ“§ <a href="mailto:contact@yourstartup.com" className="hover:text-red-400 transition-colors break-all">contact@yourstartup.com</a></p>
         </div>
       </section>
 
