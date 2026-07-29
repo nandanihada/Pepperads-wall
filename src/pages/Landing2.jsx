@@ -325,14 +325,15 @@ const Landing2 = () => {
       className="bg-black text-white min-h-screen overflow-x-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.2 }}
     >
-      {/* Animated background elements - Optimized for mobile */}
+      {/* Animated background elements - desktop only for performance */}
+      <div className="hidden md:block">
       <motion.div 
         className="fixed inset-0 overflow-hidden pointer-events-none z-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
+        transition={{ delay: 0.3 }}
       >
         {[...Array(6)].map((_, i) => (
           <motion.div
@@ -358,14 +359,14 @@ const Landing2 = () => {
           />
         ))}
       </motion.div>
+      </div>
 
       {/* Hero Section with cinematic entrance */}
       <motion.section
         ref={heroRef}
         className="mb-8 sm:mb-12 md:mb-16 relative z-10"
-        variants={animationVariants.heroEntrance}
-        initial="hidden"
-        animate={heroInView ? "visible" : "hidden"}
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
       >
         <Hero />
       </motion.section>
@@ -374,9 +375,8 @@ const Landing2 = () => {
       <motion.section
         ref={blurTextRef}
         className="bg-black py-8 sm:py-10 md:py-12 flex items-center justify-center px-4 relative z-10"
-        variants={animationVariants.cinematicEntrance}
-        initial="hidden"
-        animate={blurTextInView ? "visible" : "hidden"}
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
       >
         <motion.div
           whileHover={hoverEffects.subtleScale}
